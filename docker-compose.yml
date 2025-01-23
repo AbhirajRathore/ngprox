@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  vpn:
+    build: .
+    container_name: ngprox_vpn
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+    ports:
+      - "500:500/udp"
+      - "4500:4500/udp"
+    restart: unless-stopped
